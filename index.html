@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Искандер и Алиса — Приглашение</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap');
+
+    :root {
+      --bg1: #1f1f22;
+      --bg2: #3a3a3f;
+      --accent: #e0c58f;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(180deg, var(--bg1), var(--bg2));
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+      position: relative;
+      z-index: 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .section { padding: 60px 20px; }
+
+    .hero-names {
+      font-family: 'Playfair Display', serif;
+      font-size: 64px;
+      letter-spacing: 4px;
+      color: white;
+      margin: 100px 0 0;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .hero-subtitle {
+      font-family: 'Great Vibes', cursive;
+      font-size: 36px;
+      margin-top: 10px;
+      color: white;
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+    }
+
+    .hero-photo {
+      width: 90%;
+      max-width: 600px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+      animation: fadeIn 2s ease forwards;
+      opacity: 0;
+      margin-bottom: 100px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .big-title {
+      font-size: 28px;
+      font-weight: 500;
+      text-transform: uppercase;
+      margin: 80px 0 20px;
+      letter-spacing: 1px;
+    }
+
+    .text {
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    .date {
+      font-size: 26px;
+      margin-top: 40px;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    .calendar {
+      display: inline-block;
+      margin-top: 30px;
+      border-collapse: collapse;
+      font-size: 18px;
+    }
+
+    .calendar th {
+      padding: 10px 15px;
+      color: #aaa;
+      font-weight: 500;
+    }
+
+    .calendar td {
+      padding: 12px 18px;
+      color: #fff;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    .calendar td.highlight {
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      font-weight: bold;
+    }
+
+    /* ---------- ОБНОВЛЕННАЯ ПРОГРАММА (СТИЛЬ С ФОТО) ---------- */
+    .program { margin-top: 80px; }
+
+    .program h2 {
+      font-size: 28px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Вступительный текст под заголовком программы */
+    .program-intro {
+      font-size: 18px;
+      color: #ddd;
+      max-width: 700px;
+      margin: 24px auto 40px;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* Таймлайн: вертикальный список больших времён с подписью под ними */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 48px;
+      margin-bottom: 40px;
+      padding: 0 10px;
+    }
+
+    .time-item {
+      text-align: center;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .time {
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;     /* крупный размер как на фото */
+      font-weight: 300;    /* тонкий, элегантный */
+      color: #fff;
+      letter-spacing: 2px;
+      margin: 0;
+      line-height: 1;
+    }
+
+    .event {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      color: #dcdcdc;
+      margin-top: 8px;
+      font-weight: 300;
+    }
+
+    /* адрес и показ на карте (ссылка) */
+    .address { margin-top: 30px; font-size: 18px; }
+    .address strong {
+      font-size: 22px;
+      font-family: 'Great Vibes', cursive;
+      color: var(--accent);
+      display:block;
+      margin-bottom:6px;
+    }
+
+    .location-icon {
+      width: 30px;
+      height: 30px;
+      fill: var(--accent);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      vertical-align: middle;
+    }
+    .location-icon:hover { transform: scale(1.2); }
+    .location-text {
+      font-size: 14px;
+      color: var(--accent);
+      margin-left: 10px;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+
+    /* ----------------------------------------------------------- */
+
+    .dresscode, .wishes { margin-top: 80px; }
+
+    .dresscode p, .wishes p {
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    /* ТАЙМЕР (оставил как было) */
+    .countdown {
+      margin-top: 80px;
+    }
+
+    .countdown h2 {
+      font-size: 28px;
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 1px;
+      margin-bottom: 40px;
+    }
+
+    #timer {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .time-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .time-block span {
+      font-size: 58px;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    .time-label {
+      font-size: 16px;
+      color: #ccc;
+      margin-top: 10px;
+    }
+
+    /* Форма */
+    form {
+      margin-top: 60px;
+      display: inline-block;
+      text-align: left;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px 40px;
+      border-radius: 10px;
+      max-width: 500px;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-size: 16px;
+    }
+
+    input[type="text"], select, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      font-size: 16px;
+    }
+
+    input[type="checkbox"], input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 30px;
+      font-size: 16px;
+      background: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .time { font-size: 46px; }
+      .timeline { gap: 36px; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-names { font-size: 36px; margin-top: 60px; }
+      .hero-subtitle { font-size: 28px; }
+      #timer { gap: 20px; }
+      .time-block span { font-size: 42px; }
+      .time { font-size: 38px; }
+      .timeline { gap: 28px; }
+    }
+    /* ---- Фото под пожеланиями ---- */
+.photo-section {
+  margin-top: 50px;
+  margin-bottom: 80px;
+  text-align: center;
+  position: relative;
+}
+
+.photo-section img {
+  width: 75%;          /* Фото немного меньше, чтобы вписалось в композицию */
+  max-width: 520px;    /* Ограничение по ширине */
+  border-radius: 16px; /* Мягкие, изящные края */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05); /* Едва заметная тень для объёма */
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
+  </style>
+</head>
+
+<body>
+  <div class="section">
+    <h1 class="hero-names">ИСКАНДЕР<br>и<br>АЛИСА</h1>
+    <p class="hero-subtitle">Наш день</p>
+
+    <img src="1.png.jpg" alt="Помолвка" class="hero-photo" />
+
+    <h2 class="big-title">ДОРОГИЕ НАШИ ДРУЗЬЯ И РОДНЫЕ</h2>
+    <p class="text">В нашей жизни произойдет очень важное событие — наша свадьба!</p>
+    <p class="text">Мы верим и надеемся, что этот день станет красивым началом долгой и счастливой жизни.</p>
+
+    <div class="date">08.08.2026</div>
+
+    <table class="calendar">
+      <thead>
+        <tr><th>Пн</th><th>Вт</th><th>Ср</th><th>Чт</th><th>Пт</th><th>Сб</th><th>Вс</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td><td></td><td></td><td></td><td></td><td>1</td><td>2</td>
+        </tr>
+        <tr>
+          <td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td class="highlight">8</td><td>9</td>
+        </tr>
+        <tr>
+          <td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td>
+        </tr>
+        <tr>
+          <td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td>
+        </tr>
+        <tr>
+          <td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td>
+        </tr>
+        <tr>
+          <td>31</td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- === ПРОГРАММА ДНЯ (ПЕРЕДЕЛАНА В СТИЛЕ С ФОТО) === -->
+    <div class="program">
+      <h2>ПРОГРАММА ДНЯ</h2>
+
+      <div class="program-intro">
+        Мы хотим, чтобы вы разделили с нами радость и были на торжестве в самый важный и трогательный день для нас!
+      </div>
+
+      <div class="timeline">
+        <div class="time-item">
+          <div class="time">12:00</div>
+          <div class="event">Регистрация брака</div>
+        </div>
+
+        <div class="time-item">
+          <div class="time">12:00–15:30</div>
+          <div class="event">Фотосессия</div>
+        </div>
+
+        <div class="time-item">
+          <div class="time">16:00</div>
+          <div class="event">Начало банкета</div>
+        </div>
+
+        <div class="time-item">
+          <div class="time">21:00</div>
+          <div class="event">Торжественный вынос торта</div>
+        </div>
+
+        <div class="time-item">
+          <div class="time">22:00</div>
+          <div class="event">Окончание банкета</div>
+        </div>
+      </div>
+
+      <div class="address">
+        <p><strong>ЗАГС Гагаринского района</strong><br>ул. Проспект Октябрьской Революции, д. 8</p>
+        <a href="https://www.google.com/maps?q=44.593809,33.451339&hl=ru" target="_blank" rel="noreferrer">
+          <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C8.69 0 6 2.69 6 6c0 3.54 4.71 10.36 5.39 11.54l.61.85.61-.85C13.29 16.36 18 9.54 18 6c0-3.31-2.69-6-6-6zm0 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+          <span class="location-text">Показать на карте</span>
+        </a>
+
+        <p><strong>Ресторан "Фрэш"</strong><br>ул. Исторический бульвар, д. 3</p>
+        <a href="https://www.google.com/maps?q=44.599739,33.524336&hl=ru" target="_blank" rel="noreferrer">
+          <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C8.69 0 6 2.69 6 6c0 3.54 4.71 10.36 5.39 11.54l.61.85.61-.85C13.29 16.36 18 9.54 18 6c0-3.31-2.69-6-6-6zm0 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+          <span class="location-text">Показать на карте</span>
+        </a>
+      </div>
+    </div>
+    <!-- === /ПРОГРАММА ДНЯ === -->
+
+    <div class="dresscode">
+      <h2>ДРЕСС-КОД</h2>
+      <p>Мы будем рады видеть вас в нарядах любой цветовой гаммы — пусть каждый из вас внесёт свой оттенок в палитру нашего праздника.</p>
+      <p>Ваши улыбки, тепло и присутствие — лучшая окраска этого особенного дня для нас.</p>
+    </div>
+
+    <div class="wishes">
+      <h2>ПОЖЕЛАНИЯ</h2>
+      <p>Свои тёплые слова и пожелания приносите в сердцах, а подарки — в конверте.</p>
+      <p>Будем благодарны, если вы воздержитесь от криков «Горько!» на празднике 💫</p>
+    </div>
+    <div class="photo-section">
+      <img src="couple.jpg" alt="Искандер и Алиса" />
+
+    <div class="countdown">
+      <h2>ОСТАЛОСЬ ДО ПРАЗДНИКА</h2>
+      <div id="timer">
+        <div class="time-block">
+          <span id="days">00</span>
+          <div class="time-label">дней</div>
+        </div>
+        <div class="time-block">
+          <span id="hours">00</span>
+          <div class="time-label">часов</div>
+        </div>
+        <div class="time-block">
+          <span id="minutes">00</span>
+          <div class="time-label">минут</div>
+        </div>
+        <div class="time-block">
+          <span id="seconds">00</span>
+          <div class="time-label">секунд</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>АНКЕТА ГОСТЯ</h2>
+      <p>Заполните, пожалуйста, форму, чтобы подтвердить своё присутствие.</p>
+      <form action="https://formspree.io/f/xkgkweyp" method="POST">
+        <label>Ваше имя и фамилия:</label>
+        <input type="text" name="name" placeholder="Иван Иванов / Алина Иванова" required />
+
+        <label>Планируете ли Вы присутствовать на свадьбе?</label>
+        <label><input type="radio" name="presence" value="Да" required> Да, с удовольствием!</label>
+        <label><input type="radio" name="presence" value="Нет"> К сожалению, не могу :(</label>
+
+        <label>Предпочтения в алкоголе:</label>
+        <label><input type="checkbox" name="alcohol[]" value="Красное вино"> Красное вино</label>
+        <label><input type="checkbox" name="alcohol[]" value="Белое вино"> Белое вино</label>
+        <label><input type="checkbox" name="alcohol[]" value="Шампанское"> Шампанское</label>
+        <label><input type="checkbox" name="alcohol[]" value="Виски"> Виски</label>
+        <label><input type="checkbox" name="alcohol[]" value="Безалкогольное"> Безалкогольное</label>
+
+        <label>Предпочтения в еде:</label>
+        <label><input type="checkbox" name="food[]" value="Мясо"> Мясо</label>
+        <label><input type="checkbox" name="food[]" value="Рыба"> Рыба</label>
+        <label><input type="checkbox" name="food[]" value="Птица"> Птица</label>
+
+        <button type="submit">Отправить</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const targetDate = new Date("August 8, 2026 00:00:00").getTime();
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      daysEl.textContent = days.toString().padStart(2, '0');
+      hoursEl.textContent = hours.toString().padStart(2, '0');
+      minutesEl.textContent = minutes.toString().padStart(2, '0');
+      secondsEl.textContent = seconds.toString().padStart(2, '0');
+    }, 1000);
+  </script>
+</body>
+</html>
