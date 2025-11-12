@@ -52,23 +52,26 @@
     }
 
     .hero-photo {
-      width: 100%;
-      height: auto;
-      border-radius: 20px;
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
-      animation: fadeIn 2s ease forwards;
-      opacity: 0;
-      display: block;
-      margin: 0 auto 100px;
-      object-fit: cover;
-      max-width: 100%;
-    }
+  width: 70%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+  animation: fadeIn 2s ease forwards;
+  opacity: 0;
+  display: block;
+  margin: 0 auto 100px;
+  object-fit: cover;
+  transition: width 0.5s ease;
+}
 
-    @media (min-width: 768px) {
-      .hero-photo {
-        width: 70%;
-      }
-    }
+/* Для телефонов и планшетов — фото растягивается на всю ширину */
+@media (max-width: 768px) {
+  .hero-photo {
+    width: 100%;
+    border-radius: 0; /* можно убрать скругления, чтобы выглядело «вшито» в экран */
+    margin-bottom: 60px;
+  }
+}
     
 
     @keyframes fadeIn {
@@ -320,12 +323,71 @@
 }
 
 .photo-section img {
-  width: 75%;          /* Фото немного меньше, чтобы вписалось в композицию */
-  max-width: 520px;    /* Ограничение по ширине */
-  border-radius: 16px; /* Мягкие, изящные края */
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05); /* Едва заметная тень для объёма */
-  opacity: 0;
+  width: 70%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
   animation: fadeIn 2s ease forwards;
+  opacity: 0;
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
+  max-width: 100%;
+}
+
+/* На телефонах — фото во всю ширину */
+@media (max-width: 768px) {
+  .photo-section img {
+    width: 100%;
+  }
+}
+/* === Кнопка включения музыки === */
+.music-player {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+#playMusic {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(224, 197, 143, 0.3);
+  transition: 0.3s;
+}
+
+#playMusic:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(224, 197, 143, 0.5);
+}
+/* === Кнопка включения музыки === */
+.music-player {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+#playMusic {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(224, 197, 143, 0.3);
+  transition: 0.3s;
+}
+
+#playMusic:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(224, 197, 143, 0.5);
 }
   </style>
 </head>
@@ -514,7 +576,32 @@
       secondsEl.textContent = seconds.toString().padStart(2, '0');
     }, 1000);
   </script>
+  <!-- === МУЗЫКА НА САЙТЕ === -->
+<div class="music-player">
+  <button id="playMusic">🎶 Включить музыку</button>
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
+</div>
+
+<script>
+  const music = document.getElementById('bgMusic');
+  const playButton = document.getElementById('playMusic');
+
+  playButton.addEventListener('click', () => {
+    if (music.paused) {
+      music.play();
+      playButton.textContent = '⏸️ Пауза';
+    } else {
+      music.pause();
+      playButton.textContent = '🎶 Включить музыку';
+    }
+  });
+</script>
 </body>
 </html>
+
+</html>
+
 
 
