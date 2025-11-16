@@ -389,6 +389,32 @@
   transform: scale(1.05);
   box-shadow: 0 0 15px rgba(224, 197, 143, 0.5);
 }
+    /* === ИСТОРИЯ ЛЮБВИ === */
+.love-story {
+  margin-top: 80px;
+}
+
+.love-photo img {
+  width: 70%;
+  max-width: 600px;
+  border-radius: 20px;
+  margin-top: 40px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+  object-fit: cover;
+  animation: fadeIn 2s ease forwards;
+  opacity: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .love-photo img {
+    width: 100%;
+    border-radius: 0;
+  }
+}
+
   </style>
 </head>
 
@@ -430,7 +456,27 @@
         </tr>
       </tbody>
     </table>
+<!-- === ИСТОРИЯ ЛЮБВИ === -->
+<div class="love-story section">
+  <h2 class="big-title">ИСТОРИЯ ЛЮБВИ</h2>
 
+  <p class="text">
+    Мы познакомились в Кореизе, у самого моря.  
+    Мы оба оказались там из-за работы, просто хотели получить немного опыта.  
+    Но именно тогда, среди забот и дел, произошла наша встреча — и этот день изменил всё.
+  </p>
+
+  <p class="text">
+    Мы много смеялись, гуляли по набережной и не заметили, как стали чуть ближе друг к другу.  
+    Теперь, спустя время, мы понимаем, что та встреча была началом чего-то настоящего.  
+    И очень хочется разделить продолжение этой истории с вами.
+  </p>
+
+  <div class="love-photo">
+    <img src="love.jpg" alt="История любви" />
+  </div>
+</div>
+<!-- === /ИСТОРИЯ ЛЮБВИ === -->
     <!-- === ПРОГРАММА ДНЯ (ПЕРЕДЕЛАНА В СТИЛЕ С ФОТО) === -->
     <div class="program">
       <h2>ПРОГРАММА ДНЯ</h2>
@@ -604,6 +650,7 @@
 </script>
 </body>
 </html>
+
 
 
 
