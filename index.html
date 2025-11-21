@@ -581,30 +581,37 @@
         Поскольку в анкете есть вопросы касательно меню и напитков,<br>
         просим гостей, которые придут в паре, заполнять форму по отдельности.
       </p>
-      <form action="https://formspree.io/f/xkgkweyp" method="POST">
-        <label>Ваше имя и фамилия:</label>
-        <input type="text" name="name" placeholder="Иван Иванов / Алина Иванова" required />
+      <form action="https://formsubmit.co/xmonrut@inbox.ru" method="POST">
 
-        <label>Планируете ли Вы присутствовать на свадьбе?</label>
-        <label><input type="radio" name="presence" value="Да" required> Да, с удовольствием!</label>
-        <label><input type="radio" name="presence" value="Нет"> К сожалению, не могу :(</label>
+  <!-- Отключаем CAPTCHA -->
+  <input type="hidden" name="_captcha" value="false">
 
-        <label>Предпочтения в алкоголе:</label>
-        <label><input type="checkbox" name="alcohol[]" value="Красное вино"> Красное вино</label>
-        <label><input type="checkbox" name="alcohol[]" value="Белое вино"> Белое вино</label>
-        <label><input type="checkbox" name="alcohol[]" value="Шампанское"> Шампанское</label>
-        <label><input type="checkbox" name="alcohol[]" value="Виски"> Виски</label>
-        <label><input type="checkbox" name="drinks" value="Водка"> Водка</label>
-        <label><input type="checkbox" name="drinks" value="Коньяк"> Коньяк</label>
-        <label><input type="checkbox" name="alcohol[]" value="Безалкогольное"> Безалкогольное</label>
+  <!-- После отправки можно сделать переадресацию (необязательно) -->
+  <!-- <input type="hidden" name="_next" value="https://ваш_сайт/спасибо.html"> -->
 
-        <label>Предпочтения в еде:</label>
-        <label><input type="checkbox" name="food[]" value="Мясо"> Мясо</label>
-        <label><input type="checkbox" name="food[]" value="Рыба"> Рыба</label>
-        <label><input type="checkbox" name="food[]" value="Птица"> Птица</label>
+  <label>Ваше имя и фамилия:</label>
+  <input type="text" name="name" placeholder="Иван Иванов / Алина Иванова" required />
 
-        <button type="submit">Отправить</button>
-      </form>
+  <label>Планируете ли Вы присутствовать на свадьбе?</label>
+  <label><input type="radio" name="presence" value="Да" required> Да, с удовольствием!</label>
+  <label><input type="radio" name="presence" value="Нет"> К сожалению, не могу :(</label>
+
+  <label>Предпочтения в алкоголе:</label>
+  <label><input type="checkbox" name="alcohol[]" value="Красное вино"> Красное вино</label>
+  <label><input type="checkbox" name="alcohol[]" value="Белое вино"> Белое вино</label>
+  <label><input type="checkbox" name="alcohol[]" value="Шампанское"> Шампанское</label>
+  <label><input type="checkbox" name="alcohol[]" value="Виски"> Виски</label>
+  <label><input type="checkbox" name="alcohol[]" value="Водка"> Водка</label>
+  <label><input type="checkbox" name="alcohol[]" value="Коньяк"> Коньяк</label>
+  <label><input type="checkbox" name="alcohol[]" value="Безалкогольное"> Безалкогольное</label>
+
+  <label>Предпочтения в еде:</label>
+  <label><input type="checkbox" name="food[]" value="Мясо"> Мясо</label>
+  <label><input type="checkbox" name="food[]" value="Рыба"> Рыба</label>
+  <label><input type="checkbox" name="food[]" value="Птица"> Птица</label>
+
+  <button type="submit">Отправить</button>
+</form>
     </div>
   </div>
 
@@ -654,6 +661,7 @@
 </script>
 </body>
 </html>
+
 
 
 
